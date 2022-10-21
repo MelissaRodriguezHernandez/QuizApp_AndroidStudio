@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="text_question_1" >The black box in a plane is black</string>
+    <string name="text_question_2">Alliumphobia is a fear of garlic</string>
+    <string name="text_question_3">Waterloo has the greatest number of tube platforms in London</string>
+    <string name="text_question_4">The unicorn is the national animal of Scotland</string>
+    <string name="text_question_5">\'A\' is the most common letter used in the English language</string>
+    <string name="text_question_6">Monaco is the smallest country in the world</string>
+    <string name="text_question_7">There are five different blood group</string>
+    <string name="true_button"  >TRUE</string>
+    <string name="false_button" >FALSE</string>
+    <string name="next_button">NEXT</string>
+    <string name="prev_button">PREV</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
+
+</resources>
