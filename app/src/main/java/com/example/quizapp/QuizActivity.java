@@ -38,6 +38,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate(Bundle) called");
+        setContentView(R.layout.activity_main);
+
+
 
         if (savedInstanceState != null) {
             currentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
@@ -47,9 +50,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         int question = questionsSolutions[currentIndex].getQTextId();
         textQuestion.setText(question);
 
-        if(currentIndex == 0){
-            prevButton.setVisibility(View.INVISIBLE);
-        }
 
 
         falseButton = (Button) findViewById(R.id.false_button);
@@ -69,26 +69,35 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         nextButton = (Button) findViewById(R.id.next_button);
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   // prevButton.setVisibility(View.VISIBLE);
+                prevButton.setVisibility(View.VISIBLE);
+                Log.d(TAG, String.valueOf(currentIndex));
                     currentIndex = (currentIndex+1)% questionsSolutions.length;
+                if(currentIndex == questionsSolutions.length-1 ){
+                    nextButton.setVisibility(View.INVISIBLE);
+                }
+
                     updateQuestion();
             }
         });
 
         prevButton = (Button) findViewById(R.id.prev_button);
+        if(currentIndex == 0){
+            prevButton.setVisibility(View.INVISIBLE);
+        }
+
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nextButton.setVisibility(View.VISIBLE);
                 currentIndex = (currentIndex-1)% questionsSolutions.length;
-                updateQuestion();
-
-                if(currentIndex == 7 ){
+                if(currentIndex == 0){
                     prevButton.setVisibility(View.INVISIBLE);
                 }
+                updateQuestion();
             }
         });
 
@@ -115,7 +124,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         Toast.makeText(this, messageId, Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public void onClick(View view) {
@@ -151,12 +159,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     //Guardar la ubicacion de la anterior pregunta
 
-//    @Override
-//    public void onSaveInstanceState(Bundle savedInstanceState) {
-//        super.onSaveInstanceState(savedInstanceState);
-//        Log.i(TAG, "onSaveInstanceState");
-//        savedInstanceState.putInt(KEY_INDEX, currentIndex);
-//    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, currentIndex);
+    }
 
     //Mensaje del log del nivel
 
