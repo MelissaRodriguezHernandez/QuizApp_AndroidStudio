@@ -29,3 +29,8 @@
 * La última pregunta tiene incluido en el código una condición para que desaparezca el botón de 'Next'
 
 ![ultima pregunta desaparece el boton next](https://user-images.githubusercontent.com/91748294/197341335-ab44b234-460e-4e6d-9f68-32a1e12b858a.jpg)
+
+* Si giramos el telefono la aplicación se daptará y funcionará igual
+
+![Screenshot_1](https://user-images.githubusercontent.com/91748294/197364402-7e92227b-2d7d-46ec-8555-0bfd5ab94046.jpg)
+
